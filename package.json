@@ -1,0 +1,30 @@
+{
+  "name": "shortlist-api-proxy",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "env-cmd -f ./env/.env nodemon dist/app.js"
+  },
+  "author": "Michał Kołacki",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.0",
+    "body-parser": "^1.20.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "express-sanitizer": "^1.0.6"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.3",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.14",
+    "@types/express-fileupload": "^1.4.1",
+    "@types/node": "^18.11.10",
+    "env-cmd": "^10.1.0",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.0"
+  }
+}

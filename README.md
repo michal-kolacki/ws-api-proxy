@@ -1,4 +1,4 @@
-# twojtrener.pl
+# ws-api-proxy
 
 ## Preinstallation
 

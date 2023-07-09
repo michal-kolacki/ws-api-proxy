@@ -1,12 +1,21 @@
-import { RequestHandler } from 'express';
+import {RequestHandler} from 'express';
 import fs from 'fs';
 import http from '../api/http';
 
 export const getProxy: RequestHandler = (req, res, next) => {
   console.log('GET: ', new Date().getTime(), req.url);
   return http().get(req.url).then(({data}) => {
+    try {
+      console.log(`./tmp/${req.url.split('/').join('-').split('?').join('-')}.json`);
+      fs.writeFileSync(`./tmp/${req.url.split('/').join('-').split('?').join('-')}.json`, JSON.stringify(data));
+    } catch (err) {
+      console.log(err);
+    }
     return res.status(200).json(data);
-  }).catch((err) => next(err));
+  }).catch((err) => {
+    console.log(err);
+    return next(err);
+  });
 };
 
 export const postProxy: RequestHandler = (req, res, next) => {
